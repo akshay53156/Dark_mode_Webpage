@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark/Light Mode Toggle</title>
+    <style>
+        /* Basic styles for dark and light mode */
+        body {
+            display: flex;
+            justify-content: center;
+            /* align-items: center; */
+            height: 100vh;
+            margin: 50px;
+            font-family: Arial, sans-serif;
+            transition: background-color 0.5s, color 0.5s;
+        }
+        /* Light Mode */
+        body.light-mode {
+            background-color: white;
+            color: black;
+        }
+        /* Dark Mode */
+        body.dark-mode {
+            background-color: black;
+            color: white;
+        }
+        /* Toggle button container */
+        .toggle-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        /* Toggle button style */
+        .toggle-button {
+            position: relative;
+            width: 50px;
+            height: 25px;
+            background-color: #333;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: background-color 0.5s;
+        }
+        /* Toggle button circle */
+        .toggle-button:before {
+            content: "";
+            position: absolute;
+            width: 23px;
+            height: 23px;
+            border-radius: 50%;
+            background-color: white;
+            top: 1px;
+            left: 1px;
+            transition: transform 0.5s;
+        }
+        /* Dark mode button icon */
+        .toggle-button.dark:before {
+            transform: translateX(25px);
+            background-color: yellow;
+        }
+        /* Text */
+        .text {
+            font-size: 5rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <div class="toggle-container">
+        <div class="toggle-button" onclick="toggleMode()"></div>
+        <div class="text">Click on the Toggle Button</div>
+    </div>
+
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle('dark-mode');
+            document.body.classList.toggle('light-mode');
+            document.querySelector('.toggle-button').classList.toggle('dark');
+        }
+    </script>
+</body>
+</html>
